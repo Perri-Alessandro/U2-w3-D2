@@ -18,8 +18,8 @@ const visualizzaUtenti = function () {
   contenitoreRegistrati.innerHTML = "";
   arrayUtente.forEach((utente) => {
     const utenteDiv = document.createElement("div");
-    utenteDiv.classList.add("border", "col-2", "border-warning", "mx-1");
-    utenteDiv.textContent = `Nome: ${utente.name}, Cognome: ${utente.surname}`;
+    utenteDiv.classList.add("border", "col-1", "border-warning", "mx-1");
+    utenteDiv.textContent = `Nome: ${utente.name.toUpperCase()}  Cognome: ${utente.surname.toUpperCase()}`;
     contenitoreRegistrati.appendChild(utenteDiv);
   });
 };
