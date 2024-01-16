@@ -12,7 +12,7 @@
     />
   </head>
 
-  <body>
+  <body class="bg-dark text-white">
     <header>
       <h1 class="text-info text-center">FORM DI REGISTRAZIONE</h1>
     </header>
@@ -28,11 +28,15 @@
           <form class="col-5" id="prendiIbottoni">
             <div class="mb-3">
               <label for="name" class="form-label">NOME</label>
-              <input class="form-control" id="name" required />
+              <input class="form-control border-warning" id="name" required />
             </div>
             <div class="mb-3">
               <label for="surname" class="form-label">COGNOME</label>
-              <input class="form-control" id="surname" required />
+              <input
+                class="form-control border-warning"
+                id="surname"
+                required
+              />
             </div>
           </form>
           <div class="col-5">
@@ -57,14 +61,15 @@
           </div>
         </div>
       </section>
-      <section class="w-2">
-        <article
-          class="row text-center mt-4 row-cols-4 g-2 justify-content-center"
-          id="pets"
-        ></article>
-      </section>
-      <section class="text-center text-info">
-        <h2 id="contatore">0</h2>
+      <section class="text-center text-info container">
+        <div class="row justify-content-center align-items-center">
+          <h2
+            id="contatore"
+            class="fs-1 mt-5 col-2 border border-warning rounded-circle"
+          >
+            0
+          </h2>
+        </div>
       </section>
     </main>
     <footer></footer>
