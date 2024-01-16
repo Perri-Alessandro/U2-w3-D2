@@ -44,12 +44,15 @@ removeButton.addEventListener("click", () => {
 
 //////////////////////////////////////////////////////////////////// ESERCIZIO 2 //////////////////////////////////////////////////////////////////////////
 const contatoreDiv = document.getElementById("contatore");
-let contatore = 0; //lo inizializzo
+
+let contatore = sessionStorage.getItem("contatore") || 0;
 
 const aggiornaContatore = function () {
   contatore++;
   contatoreDiv.textContent = contatore;
-  sessionStorage.setItem("contatore", contatore);
+  window.addEventListener("unload", () => {
+    sessionStorage.setItem("contatore", contatore); // non aggiorno il contatore quando la pagina viene aggiornata
+  });
 };
 
 const intervalloContatore = setInterval(aggiornaContatore, 1000); // imposto l'intervallo per richiamare ogni secondo la funzione
