@@ -4,7 +4,7 @@ const formInput = document.getElementsByTagName("form")[0];
 const removeButton = document.getElementsByClassName("bg-danger")[0];
 const contenitoreRegistrati = document.getElementById("utentiRegistrati");
 
-let arrayUtente = [];
+let arrayUtente = JSON.parse(localStorage.getItem("arrayUtente")) || [];
 
 class Form {
   constructor(_name, _surname) {
@@ -36,6 +36,10 @@ formInput.addEventListener("submit", (e) => {
 
 removeButton.addEventListener("click", () => {
   console.log("Pulsante Rimuovi cliccato");
+  if (arrayUtente.length === 0) {
+    alert("NESSUN UTENTE REGISTRATO");
+    return;
+  }
   arrayUtente.pop();
   localStorage.setItem("arrayUtente", JSON.stringify(arrayUtente));
   visualizzaUtenti();
@@ -50,9 +54,9 @@ let contatore = sessionStorage.getItem("contatore") || 0;
 const aggiornaContatore = function () {
   contatore++;
   contatoreDiv.textContent = contatore;
-  window.addEventListener("unload", () => {
-    sessionStorage.setItem("contatore", contatore); // non aggiorno il contatore quando la pagina viene aggiornata
-  });
+  //   window.addEventListener("unload", () => {
+  sessionStorage.setItem("contatore", contatore); // non aggiorno il contatore quando la pagina viene aggiornata
+  //   });
 };
-
+aggiornaContatore();
 const intervalloContatore = setInterval(aggiornaContatore, 1000); // imposto l'intervallo per richiamare ogni secondo la funzione
